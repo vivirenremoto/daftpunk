@@ -76,10 +76,10 @@
         </tr>
 
         <tr>
-            <td style="background:#00FF00" onclick="play(this)">
+            <td style="background:#004D4D" onclick="play(this)">
                 More Than
             </td>
-            <td style="background:#00FF00" onclick="play(this)">
+            <td style="background:#004D4D" onclick="play(this)">
                 Hour
             </td>
         </tr>
@@ -160,7 +160,9 @@
 
             $('#loop' + slug)[0].play();
 
-            //enlight(obj);
+            if (!time) {
+                enlight(obj);
+            }
 
         }
 
