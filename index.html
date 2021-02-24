@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Daft Punk - Harder, Better, Faster, Stronger</title>
+    <title>Daft Punk - Harder, Better, Faster, Stronger via @vivirenremoto</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 
@@ -75,9 +75,12 @@
     </style>
 
 
-    <a href="https://twitter.com/vivirenremoto" target="_blank"
-        style="color:white;font-size:30px;position:fixed;right:10px;top:10px;z-index:2;text-decoration:none;">by
-        @vivirenremoto</a>
+    <div style="position:fixed;right:10px;top:10px;z-index:2;color:white;font-size:30px;">
+        <span onclick="share()" style="cursor:pointer">Share</span> |
+        <a href="https://twitter.com/vivirenremoto" target="_blank"
+            style="color:white;font-size:30px;text-decoration:none;">by
+            @vivirenremoto</a>
+    </div>
 
 
 
@@ -340,120 +343,6 @@
             'Work is',
             'Never',
             'Over',
-            /*
-            'Work it',
-            'Harder',
-            'Make it',
-            'Better',
-            'Do it',
-            'Faster',
-            'Make us',
-            'Stronger',
-            'More than',
-            'Ever',
-            'Hour',
-            'After',
-            'Our',
-            'Work is',
-            'Never',
-            'Over',
-            'Work it',
-            'Harder',
-            'Make it',
-            'Better',
-            'Do it',
-            'Faster',
-            'Make us',
-            'Stronger',
-            'More than',
-            'Ever',
-            'Hour',
-            'After',
-            'Our',
-            'Work is',
-            'Never',
-            'Over',
-            'Work it',
-            'Harder',
-            'Make it',
-            'Better',
-            'Do it',
-            'Faster',
-            'Make us',
-            'Stronger',
-            'More than',
-            'Ever',
-            'Hour',
-            'After',
-            'Our',
-            'Work is',
-            'Never',
-            'Over',
-            'Work it',
-            'Harder',
-            'Make it',
-            'Better',
-            'Do it',
-            'Faster',
-            'Make us',
-            'Stronger',
-            'More than',
-            'Ever',
-            'Hour',
-            'After',
-            'Our',
-            'Work is',
-            'Never',
-            'Over',
-            'Work it',
-            'Harder',
-            'Make it',
-            'Better',
-            'Do it',
-            'Faster',
-            'Make us',
-            'Stronger',
-            'More than',
-            'Ever',
-            'Hour',
-            'After',
-            'Our',
-            'Work is',
-            'Never',
-            'Over',
-            'Work it',
-            'Harder',
-            'Make it',
-            'Better',
-            'Do it',
-            'Faster',
-            'Make us',
-            'Stronger',
-            'More than',
-            'Ever',
-            'Hour',
-            'After',
-            'Our',
-            'Work is',
-            'Never',
-            'Over',
-            'Work it',
-            'Harder',
-            'Make it',
-            'Better',
-            'Do it',
-            'Faster',
-            'Make us',
-            'Stronger',
-            'More than',
-            'Ever',
-            'Hour',
-            'After',
-            'Our',
-            'Work is',
-            'Never',
-            'Over'
-            */
         ]
 
 
@@ -553,8 +442,6 @@
                     time++;
 
 
-                    //time = parseInt($("video")[0].currentTime);
-
 
 
 
@@ -579,6 +466,13 @@
             }
 
 
+
+        }
+
+
+
+        function share() {
+            window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(document.title) + '&tw_p=tweetbutton&url=' + document.location.href);
 
         }
 
