@@ -76,7 +76,7 @@
 
 
     <div style="position:fixed;right:10px;top:10px;z-index:2;color:white;font-size:30px;">
-        <span id="btn_toggle" style="cursor:pointer">🍔 BURGER</span> ·
+        <span id="btn_toggle" style="cursor:pointer">🍔BURGER</span> ·
         <!--<span onclick="share()" style="cursor:pointer">ENVIAR</span> · --><a
             href="https://twitter.com/vivirenremoto" target="_blank"
             style="color:white;font-size:30px;text-decoration:none;">by @vivirenremoto</a>
@@ -93,11 +93,11 @@
         </audio>
 
         <audio id="loopBurger">
-            <source src="static/Burger.mp3?1" type="audio/mp3">
+            <source src="static/Burger.mp3?v=2" type="audio/mp3">
         </audio>
 
         <audio id="loopNuggets">
-            <source src="static/Nuggets.mp3?1" type="audio/mp3">
+            <source src="static/Nuggets.mp3?v=2" type="audio/mp3">
         </audio>
 
         <span id="timeline" style="color:white;display:none;z-index:2;"></span>
@@ -374,10 +374,10 @@
 
 
 
-            if ($('#btn_toggle').html() == '📀 ORIGINAL') {
+            if ($('#btn_toggle').html() == '📀ORIGINAL') {
                 burger_mode = true;
 
-                $('#btn_toggle').html('🍔 BURGER');
+                $('#btn_toggle').html('🍔BURGER');
 
 
                 $('td').each(function () {
@@ -385,7 +385,7 @@
                 });
 
             } else {
-                $('#btn_toggle').html('📀 ORIGINAL');
+                $('#btn_toggle').html('📀ORIGINAL');
 
                 var trs = $('tr:not(:last-child)');
 
