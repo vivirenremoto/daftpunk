@@ -84,7 +84,7 @@
 
 
 
-    <div style="position:fixed;left:0;right:0;bottom:0;text-align:center;" onclick="tims.push(time);">
+    <div style="z-index:99;position:fixed;left:0;right:0;bottom:0;text-align:center;" onclick="tims.push(time);">
 
 
 
@@ -456,8 +456,12 @@
                             enlight('td[data-slug="' + texts[count] + '"]');
                         }
                         count++;
-                    };
+                    }
 
+
+                    if (time == 460) {
+                        playGeneral(obj);
+                    }
 
 
 
