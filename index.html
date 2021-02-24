@@ -426,6 +426,8 @@
 
             var slug = $(obj).html().trim().replace(/ /g, '_');
 
+
+            $('#loop' + slug)[0].currentTime = 0;
             $('#loop' + slug)[0].play();
 
             if (!time) {
