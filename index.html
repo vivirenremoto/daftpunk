@@ -76,7 +76,8 @@
 
 
     <div style="position:fixed;right:10px;top:10px;z-index:2;color:white;font-size:30px;">
-        <span onclick="share()" style="cursor:pointer">COMPARTIR</span> · <a href="https://twitter.com/vivirenremoto"
+        <span id="btn_toggle" style="cursor:pointer">🍔BURGER</span> ·
+        <span onclick="share()" style="cursor:pointer">ENVIAR</span> · <a href="https://twitter.com/vivirenremoto"
             target="_blank" style="color:white;font-size:30px;text-decoration:none;">by
             @vivirenremoto</a>
     </div>
@@ -89,6 +90,14 @@
 
         <audio id="music">
             <source src="static/music.mp3" type="audio/mp3">
+        </audio>
+
+        <audio id="loopBurger">
+            <source src="static/Burger.mp3?1" type="audio/mp3">
+        </audio>
+
+        <audio id="loopNuggets">
+            <source src="static/Nuggets.mp3?1" type="audio/mp3">
         </audio>
 
         <span id="timeline" style="color:white;display:none;z-index:2;"></span>
@@ -347,13 +356,48 @@
 
         var text = [];
         var count = 0;
-
+        var burger_mode = true;
+        var screen_width = $(document).width();
 
         if (document.location.href.indexOf('test') > -1) {
             $('#timeline').show();
         }
 
 
+
+        $('#btn_toggle').click(function () {
+
+
+            var tds = $('td');
+            var total_tds = $(tds).length - 1;
+
+
+
+            if ($('#btn_toggle').html() == '📀DISC') {
+                burger_mode = true;
+
+                $('#btn_toggle').html('🍔BURGER');
+
+                for (var i = 0; i < total_tds; i++) {
+                    $('td:eq(' + i + ')').html($('td:eq(' + i + ')').data('slug'));
+                }
+
+            } else {
+                $('#btn_toggle').html('📀DISC');
+
+                for (var i = 0; i < total_tds; i++) {
+                    var btn_text;
+                    if (i % 2 == 0) {
+                        btn_text = 'Burger';
+                    } else {
+                        btn_text = 'Nuggets';
+                    }
+                    $('td:eq(' + i + ')').html(btn_text);
+                }
+            }
+
+
+        });
 
         $('td').each(function () {
 
@@ -475,7 +519,23 @@
 
 
         function share() {
-            window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(document.title) + '&tw_p=tweetbutton&url=' + document.location.href);
+
+
+
+            if (screen_width < 800) {
+                const shareData = {
+                    title: document.title,
+                    text: document.title,
+                    url: document.location.href
+                }
+
+                navigator.share(shareData);
+            } else {
+                window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(document.title) + '&tw_p=tweetbutton&url=' + document.location.href);
+
+            }
+
+
 
         }
 
