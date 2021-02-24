@@ -2,12 +2,26 @@
 <html>
 
 <head>
-    <title>Daft Punk - Music Board</title>
+    <title>Daft Punk - Harder, Better, Faster, Stronger</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"
         integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+
+
+
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+
+
+    <meta property="og:image" content="https://vivirenremoto.github.io/daftpunk/static/social.png">
+    <meta property="og:image:secure_url" content="https://vivirenremoto.github.io/daftpunk/static/social.png">
+    <meta property="og:image:alt" content="Daft Punk - Harder, Better, Faster, Stronger">
+    <meta property="og:image:type" content="image/png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Daft Punk - Harder, Better, Faster, Stronger">
+    <meta name="twitter:image" content="https://vivirenremoto.github.io/daftpunk/static/social.png">
+
 </head>
 
 <body>
@@ -15,8 +29,29 @@
 
 
     <style>
+        * {
+            font-family: 'VT323', monospace;
+            text-transform: uppercase;
+
+            -webkit-touch-callout: none;
+            /* iOS Safari */
+            -webkit-user-select: none;
+            /* Safari */
+            -khtml-user-select: none;
+            /* Konqueror HTML */
+            -moz-user-select: none;
+            /* Old versions of Firefox */
+            -ms-user-select: none;
+            /* Internet Explorer/Edge */
+            user-select: none;
+            /* Non-prefixed version, currently
+                            supported by Chrome, Edge, Opera and Firefox */
+        }
+
         body {
+            touch-action: pan-x pan-y;
             background: black;
+            overflow: hidden;
         }
 
         td {
@@ -26,87 +61,105 @@
             border-top: 0;
             width: 50%;
             text-align: center;
-            font-size: 30px;
+            font-size: 3em;
             color: white;
-            font-family: arial;
             cursor: pointer;
+        }
+
+        svg {
+            position: relative;
+            top: 6px;
         }
     </style>
 
 
+    <a href="https://twitter.com/vivirenremoto" target="_blank"
+        style="color:white;font-size:30px;position:fixed;right:10px;top:10px;z-index:2;text-decoration:none;">by
+        @vivirenremoto</a>
 
 
+
+    <div style="position:fixed;left:0;right:0;bottom:0;text-align:center;" onclick="tims.push(time);">
+
+
+
+        <audio id="music">
+            <source src="static/daft4.mp3" type="audio/mp3">
+        </audio>
+
+        <span id="timeline" style="color:white;display:none;z-index:2;"></span>
+    </div>
 
     <table border="0" cellspacing="0"
-        style="border-top:5px black solid;border-right:5px black solid;position:fixed;left:0;right:0;top:0;width:100%;height:100%">
+        style="border-top:55px black solid;border-right:5px black solid;position:fixed;left:0;right:0;top:0;width:100%;height:100%">
         <tr>
-            <td style="background:#ff0000" onclick="play(this)">
+            <td data-slug="Work it" style="background:#ff0000" onclick="play(this)">
                 Work it
             </td>
-            <td style="background:#ff0000" onclick="play(this)">
+            <td data-slug="Make it" style="background:#ff0000" onclick="play(this)">
                 Make it
             </td>
         </tr>
 
         <tr>
-            <td style="background:#800080" onclick="play(this)">
+            <td data-slug="Do it" style="background:#800080" onclick="play(this)">
                 Do it
             </td>
-            <td style="background:#800080" onclick="play(this)">
+            <td data-slug="Make us" style="background:#800080" onclick="play(this)">
                 Make us
             </td>
         </tr>
 
         <tr>
-            <td style="background:#0000ff" onclick="play(this)">
+            <td data-slug="Harder" style="background:#0000ff" onclick="play(this)">
                 Harder
             </td>
-            <td style="background:#0000ff" onclick="play(this)">
+            <td data-slug="Better" style="background:#0000ff" onclick="play(this)">
                 Better
             </td>
         </tr>
 
         <tr>
-            <td style="background:#008080" onclick="play(this)">
+            <td data-slug="Faster" style="background:#008080" onclick="play(this)">
                 Faster
             </td>
-            <td style="background:#008080" onclick="play(this)">
+            <td data-slug="Stronger" style="background:#008080" onclick="play(this)">
                 Stronger
             </td>
         </tr>
 
         <tr>
-            <td style="background:#004D4D" onclick="play(this)">
+            <td data-slug="More than" style="background:#004D4D" onclick="play(this)">
                 More than
             </td>
-            <td style="background:#004D4D" onclick="play(this)">
+            <td data-slug="Hour" style="background:#004D4D" onclick="play(this)">
                 Hour
             </td>
         </tr>
 
         <tr>
-            <td style="background:#808000" onclick="play(this)">
+            <td data-slug="Our" style="background:#808000" onclick="play(this)">
                 Our
             </td>
-            <td style="background:#808000" onclick="play(this)">
+            <td data-slug="Never" style="background:#808000" onclick="play(this)">
                 Never
             </td>
         </tr>
 
         <tr>
-            <td style="background:#ffa500" onclick="play(this)">
+            <td data-slug="Ever" style="background:#ffa500" onclick="play(this)">
                 Ever
             </td>
-            <td style="background:#ffa500" onclick="play(this)">
+            <td data-slug="After" style="background:#ffa500" onclick="play(this)">
                 After
             </td>
         </tr>
 
         <tr>
-            <td style="background:#ff0000" onclick="play(this)">
+            <td data-slug="Work is" style="background:#ff0000" onclick="play(this)">
                 Work is
             </td>
-            <td style="background:#ff0000" onclick="play(this)">
+            <td data-slug="Over" style="background:#ff0000" onclick="play(this)">
                 Over
             </td>
         </tr>
@@ -139,7 +192,278 @@
     <script>
 
         var timer_music;
+        var timer_countdown;
+
         var time = 0;
+        var time_countdown;
+
+
+        var tims = [];
+        var times = [15, 18, 24, 28, 49, 53, 56, 60, 79, 82, 86, 89, 111, 115, 118, 122, 141, 143, 147, 151, 173, 176, 180, 184, 202, 203, 205, 207, 209, 211, 213, 215, 232, 234, 236, 238, 240, 242, 244, 246, 263, 265, 267, 269, 271, 273, 275, 277, 279, 281, 283, 285, 287, 289, 291, 293, 295, 297, 298, 300, 302, 304, 306, 308, 310, 312, 314, 316, 318, 320, 322, 324, 326, 328, 330, 331, 333, 335, 337, 339, 341, 343, 345, 347, 349, 351, 353, 355, 357, 359, 361, 364, 366, 368, 370, 372, 374, 376, 378, 380, 381, 383, 385, 388, 390, 391, 393, 395, 397, 399, 401, 404, 405, 407, 409, 411, 413, 415, 416, 419, 420, 422, 424, 426, 428, 430, 432, 434, 436, 438, 440, 442, 444, 445, 447, 449, 450];
+
+        var texts = [
+            'Work it',
+            'Make it',
+            'Do it',
+            'Make us',
+            'Harder',
+            'Better',
+            'Faster',
+            'Stronger',
+            'More than',
+            'Hour',
+            'Our',
+            'Never',
+            'Ever',
+            'After',
+            'Work is',
+            'Over',
+            'Work it',
+            'Make it',
+            'Do it',
+            'Make us',
+            'Harder',
+            'Better',
+            'Faster',
+            'Stronger',
+            'Work it',
+            'Harder',
+            'Make it',
+            'Better',
+            'Do it',
+            'Faster',
+            'Make us',
+            'Stronger',
+            'More than',
+            'Ever',
+            'Hour',
+            'After',
+            'Our',
+            'Work is',
+            'Never',
+            'Over',
+            'Work it',
+            'Harder',
+            'Make it',
+            'Better',
+            'Do it',
+            'Faster',
+            'Make us',
+            'Stronger',
+            'More than',
+            'Ever',
+            'Hour',
+            'After',
+            'Our',
+            'Work is',
+            'Never',
+            'Over',
+            'Work it',
+            'Harder',
+            'Make it',
+            'Better',
+            'Do it',
+            'Faster',
+            'Make us',
+            'Stronger',
+            'More than',
+            'Ever',
+            'Hour',
+            'After',
+            'Our',
+            'Work is',
+            'Never',
+            'Over',
+            'Work it',
+            'Harder',
+            'Make it',
+            'Better',
+            'Do it',
+            'Faster',
+            'Make us',
+            'Stronger',
+            'More than',
+            'Ever',
+            'Hour',
+            'After',
+            'Our',
+            'Work is',
+            'Never',
+            'Over',
+            'Work it',
+            'Harder',
+            'Make it',
+            'Better',
+            'Do it',
+            'Faster',
+            'Make us',
+            'Stronger',
+            'More than',
+            'Ever',
+            'Hour',
+            'After',
+            'Our',
+            'Work is',
+            'Never',
+            'Over',
+            'Work it',
+            'Harder',
+            'Make it',
+            'Better',
+            'Do it',
+            'Faster',
+            'Make us',
+            'Stronger',
+            'More than',
+            'Ever',
+            'Hour',
+            'After',
+            'Our',
+            'Work is',
+            'Never',
+            'Over',
+            'Work it',
+            'Harder',
+            'Make it',
+            'Better',
+            'Do it',
+            'Faster',
+            'Make us',
+            'Stronger',
+            'More than',
+            'Ever',
+            'Hour',
+            'After',
+            'Our',
+            'Work is',
+            'Never',
+            'Over',
+            /*
+            'Work it',
+            'Harder',
+            'Make it',
+            'Better',
+            'Do it',
+            'Faster',
+            'Make us',
+            'Stronger',
+            'More than',
+            'Ever',
+            'Hour',
+            'After',
+            'Our',
+            'Work is',
+            'Never',
+            'Over',
+            'Work it',
+            'Harder',
+            'Make it',
+            'Better',
+            'Do it',
+            'Faster',
+            'Make us',
+            'Stronger',
+            'More than',
+            'Ever',
+            'Hour',
+            'After',
+            'Our',
+            'Work is',
+            'Never',
+            'Over',
+            'Work it',
+            'Harder',
+            'Make it',
+            'Better',
+            'Do it',
+            'Faster',
+            'Make us',
+            'Stronger',
+            'More than',
+            'Ever',
+            'Hour',
+            'After',
+            'Our',
+            'Work is',
+            'Never',
+            'Over',
+            'Work it',
+            'Harder',
+            'Make it',
+            'Better',
+            'Do it',
+            'Faster',
+            'Make us',
+            'Stronger',
+            'More than',
+            'Ever',
+            'Hour',
+            'After',
+            'Our',
+            'Work is',
+            'Never',
+            'Over',
+            'Work it',
+            'Harder',
+            'Make it',
+            'Better',
+            'Do it',
+            'Faster',
+            'Make us',
+            'Stronger',
+            'More than',
+            'Ever',
+            'Hour',
+            'After',
+            'Our',
+            'Work is',
+            'Never',
+            'Over',
+            'Work it',
+            'Harder',
+            'Make it',
+            'Better',
+            'Do it',
+            'Faster',
+            'Make us',
+            'Stronger',
+            'More than',
+            'Ever',
+            'Hour',
+            'After',
+            'Our',
+            'Work is',
+            'Never',
+            'Over',
+            'Work it',
+            'Harder',
+            'Make it',
+            'Better',
+            'Do it',
+            'Faster',
+            'Make us',
+            'Stronger',
+            'More than',
+            'Ever',
+            'Hour',
+            'After',
+            'Our',
+            'Work is',
+            'Never',
+            'Over'
+            */
+        ]
+
+
+        var text = [];
+        var count = 0;
+
+
+        if (document.location.href.indexOf('test') > -1) {
+            $('#timeline').show();
+        }
+
+
 
         $('td').each(function () {
 
@@ -169,7 +493,7 @@
 
         function enlight(obj) {
             $(obj).css('opacity', 1).animate({
-                'opacity': '-=0.30'
+                'opacity': '0.30'
             }, 1500);
 
             //play(obj);
@@ -184,138 +508,73 @@
 
             if (time) {
                 clearInterval(timer_music);
+                clearInterval(timer_countdown);
                 time = 0;
+                count = 0;
                 $('#txt_play').html('PLAY');
                 $('#icon_stop').hide();
                 $('#icon_play').show();
 
+                $('#music')[0].pause();
+
             } else {
 
+                $('#music')[0].play();
 
-                $('#txt_play').html(3);
+                $('#music')[0].currentTime = 0;
+
                 $('#icon_play').hide();
                 $('#icon_stop').hide();
+
+
+                clearInterval(timer_countdown);
+                time_countdown = 3;
+                $('#txt_play').html(time_countdown);
+                timer_countdown = setInterval(function () {
+
+                    time_countdown--;
+
+
+                    if (time_countdown == 0) {
+                        $('#txt_play').html('STOP');
+                        $('#icon_stop').show();
+                        $('#icon_play').hide();
+
+                        clearInterval(timer_countdown);
+                    } else {
+                        $('#txt_play').html(time_countdown);
+                    }
+
+
+
+                }, 1000);
 
                 timer_music = setInterval(function () {
                     time++;
 
 
-                    if (time < 4) {
-                        $('#txt_play').html(3 - time);
-                    } else if (time == 4) {
-                        $('#txt_play').html('STOP');
-                        $('#icon_stop').show();
-                        $('#icon_play').hide();
-                    }
-
-
-                    if (time == 3) {
-                        enlight('td:eq(0)');
-                    } else if (time == 4) {
-                        enlight('td:eq(1)');
-                    } else if (time == 6) {
-                        enlight('td:eq(2)');
-                    } else if (time == 8) {
-                        enlight('td:eq(3)');
-                    } else if (time == 10) {
-                        enlight('td:eq(4)');
-                    } else if (time == 12) {
-                        enlight('td:eq(5)');
-                    } else if (time == 14) {
-                        enlight('td:eq(6)');
-                    } else if (time == 16) {
-                        enlight('td:eq(7)');
-                    } else if (time == 18) {
-                        enlight('td:eq(8)');
-                    } else if (time == 20) {
-                        enlight('td:eq(9)');
-                    } else if (time == 22) {
-                        enlight('td:eq(10)');
-                    } else if (time == 24) {
-                        enlight('td:eq(11)');
-                    } else if (time == 26) {
-                        enlight('td:eq(12)');
-                    } else if (time == 28) {
-                        enlight('td:eq(13)');
-                    } else if (time == 30) {
-                        enlight('td:eq(14)');
-                    } else if (time == 32) {
-                        enlight('td:eq(15)');
-                    }
-
-                    else if (time == 34) {
-                        enlight('td:eq(0)');
-                    } else if (time == 35) {
-                        enlight('td:eq(4)');
-                    } else if (time == 36) {
-                        enlight('td:eq(1)');
-                    } else if (time == 37) {
-                        enlight('td:eq(5)');
-                    } else if (time == 38) {
-                        enlight('td:eq(2)');
-                    } else if (time == 39) {
-                        enlight('td:eq(6)');
-                    } else if (time == 40) {
-                        enlight('td:eq(3)');
-                    } else if (time == 41) {
-                        enlight('td:eq(7)');
-                    } else if (time == 42) {
-                        enlight('td:eq(8)');
-                    } else if (time == 43) {
-                        enlight('td:eq(12)');
-                    } else if (time == 44) {
-                        enlight('td:eq(9)');
-                    } else if (time == 45) {
-                        enlight('td:eq(13)'); //after
-                    } else if (time == 46) {
-                        enlight('td:eq(10)');
-                    } else if (time == 47) {
-                        enlight('td:eq(14)');
-                    } else if (time == 48) {
-                        enlight('td:eq(11)');
-                    } else if (time == 49) {
-                        enlight('td:eq(15)');
-                    }
-
-                    else if (time == 50) {
-                        enlight('td:eq(0)');
-                    } else if (time == 51) {
-                        enlight('td:eq(4)');
-                    } else if (time == 52) {
-                        enlight('td:eq(1)');
-                    } else if (time == 53) {
-                        enlight('td:eq(5)');
-                    } else if (time == 54) {
-                        enlight('td:eq(2)');
-                    } else if (time == 55) {
-                        enlight('td:eq(6)');
-                    } else if (time == 56) {
-                        enlight('td:eq(3)');
-                    } else if (time == 57) {
-                        enlight('td:eq(7)');
-                    } else if (time == 58) {
-                        enlight('td:eq(8)');
-                    } else if (time == 59) {
-                        enlight('td:eq(12)');
-                    } else if (time == 60) {
-                        enlight('td:eq(9)');
-                    } else if (time == 61) {
-                        enlight('td:eq(13)'); //after
-                    } else if (time == 62) {
-                        enlight('td:eq(10)');
-                    } else if (time == 63) {
-                        enlight('td:eq(14)');
-                    } else if (time == 64) {
-                        enlight('td:eq(11)');
-                    } else if (time == 65) {
-                        enlight('td:eq(15)');
-                    } else if (time == 66) {
-                        playGeneral(obj);
-                    }
+                    //time = parseInt($("video")[0].currentTime);
 
 
 
-                }, 500);
+
+                    $('#timeline').html(time);
+
+
+
+
+                    if (times.includes(time)) {
+
+                        if (texts[count]) {
+                            enlight('td[data-slug="' + texts[count] + '"]');
+                        }
+                        count++;
+                    };
+
+
+
+
+                }, 250);
 
             }
 
