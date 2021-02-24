@@ -368,8 +368,9 @@
         $('#btn_toggle').click(function () {
 
 
-            var tds = $('td');
-            var total_tds = $(tds).length - 1;
+
+
+
 
 
 
@@ -378,22 +379,31 @@
 
                 $('#btn_toggle').html('🍔BURGER');
 
-                for (var i = 0; i < total_tds; i++) {
-                    $('td:eq(' + i + ')').html($('td:eq(' + i + ')').data('slug'));
-                }
+
+                $('td').each(function () {
+                    $(this).html($(this).data('slug'));
+                });
 
             } else {
                 $('#btn_toggle').html('📀DISC');
 
-                for (var i = 0; i < total_tds; i++) {
+                var trs = $('tr:not(:last-child)');
+
+                $(trs).each(function (row) {
                     var btn_text;
-                    if (i % 2 == 0) {
-                        btn_text = 'Burger';
+
+                    if (row % 2 == 0) {
+                        $(this).find('td:eq(0)').html('Burger');
+                        $(this).find('td:eq(1)').html('Nuggets');
+
                     } else {
-                        btn_text = 'Nuggets';
+                        $(this).find('td:eq(0)').html('Nuggets');
+                        $(this).find('td:eq(1)').html('Burger');
                     }
-                    $('td:eq(' + i + ')').html(btn_text);
-                }
+
+                });
+
+
             }
 
 
